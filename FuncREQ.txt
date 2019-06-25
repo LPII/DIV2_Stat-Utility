@@ -1,0 +1,134 @@
+
+
+################### WEAPON ENTRY ###################
+
+---- USER INPUT ----
+Input
+    Name, DMG, RPM, MAG, TYPE 
+    check name for string, doesnt matter
+    check dmg for number, error if not number  
+    // write a function that takes value as an arg and number checks
+    // write error display msg function that takes string as arg and displays as error  
+Click Submit
+Extract value from fields 
+
+---- OBJ CREATE AND STORAGE ----
+create new object and populate fields  
+add new obj entry for DPS and calc
+add new obj entry for DPM and calc
+Obj for weapon should be:
+    Name
+    DMG
+    RPM
+    TYPE
+    MAG
+    DPS
+    DPM
+Push object to array
+Deem master array 
+
+---- SORTING DATA ----
+- FUNCTION - makePluckfromMaster
+Take array as arg
+Note the length of array
+copy array into another array, called pluck array
+
+take pluck array
+pass to find highest index 
+
+- FUNCTION - findHighestDPSIndex
+take array as arg, loop through each object in array
+    based on position check if is the last item in array
+        if not last item
+            compare current DPS value to DPS value of next object 
+                if greater than 
+                    set preferred index to current index 
+                     {!!} move to next comparison in loop {!!}
+                if less than or equal
+                    set preferred index to next index 
+                     {!!} move to next comparison in loop {!!}
+        if is last item
+            get and return pref index // the highest dps valued object 
+            {!!!!} stop parent loop return value {!!!!} 
+Pass pluckarray and result of findHighestDPSIndex() to appendArray()
+
+- FUNCTION - APPEND RANK ARRAY
+take number as arg // index of obj in array // AND array
+    traverse array, find obj at index position and append to new array
+
+- FUNCTION - REDUCE ArrayResetProcess
+take number as arg // index of obj in array // AND array
+    traverse array and remove object with that index
+    REDEFINE pluck array
+    check length of pluck
+        if greater than 1 
+            pass pluck to fidnhigestdpsindex
+        if less than 1
+            return ranked array
+
+
+
+
+
+
+
+ -- // SORTING V1, maybe deprecated// --------------------------------------------------------------------------
+
+    takeing the name and dps values
+    child-loop though each object again in pluck 
+        compare name 
+            if name matches
+                {!!} move to next comparison in child loop {!!} // because its comparing against itself
+            if name doesnt match
+                compare dps value 
+                    if DPS1 is less than or equal new dps  
+                        {!!} stop child-loop {!!} 
+                        {!!!!} stop parent loop - move to next object in pluck {!!!!} // This means its encountered a dps higher then  itself and cant be the chosen one 
+                    if DPS1 is greater or equal new dps 
+                        if index of pluck object doesnt match limit // check to see if last comparison in array..if not...
+                            {!!} move to next comparison in child loop {!!} // DPS is higher
+                        if index of pluck object does match limit (its the last one)
+                            {!!} stop child-loop {!!}
+                            {!!!!} stop parent loop - move to next object in pluck {!!!!}
+                            remove entry from pluck arry 
+                            append to end of rankedarray
+                
+-- // SORTING V1, maybe deprecated// -------------------------------------------------------------------------- 
+
+---- DISPLAYING TEMPLATE DATA ----
+Render array 
+
+  ################### BUILD CHOOSER ###################
+// sep function for shotting into filtered array 
+//take a index as argument and shoot that objeect into an array (append )
+//so two funtions working in tandem, one that finds the highest rank index and the other that takes that index and shoots into an array 
+---- USER INPUT ----
+Select type from dropdown primary
+Select type from dropdown secodary
+reveal submit
+click submit
+extract data from dropdown
+
+create object 
+    prim type choice 
+    secod type choice
+
+copy filter array to build array 
+
+compare choices
+    if prim and secondary match "any type"
+        traverse filter array
+        find top 2 weapons 
+    if prim and secondary match dont match "any type"
+        if prim and second are different
+            traverse filter array
+            find first possible prim choice 
+            traverse filter array find first possible AI super inte
+        
+
+traverse filter array
+    if type matches prim type choice 
+    push object to bestArray 
+Traverse filter array again 
+    if type matches             
+
